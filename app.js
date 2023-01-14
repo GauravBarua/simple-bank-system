@@ -14,6 +14,14 @@ Body: {
         email: teste@teste.com,
         password: "teste"
     }
+Route: /bank
+Method: GET,
+AdminPrivilege: true,
+Params: Account number
+Header: --,
+Body: --
+
+
 
 app.listen(port, () => {
   console.log(` ----------------------\n|      SERVER ON!      |\n|      Porta: ${port}     |\n ----------------------`)
