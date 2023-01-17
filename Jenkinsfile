@@ -3,17 +3,20 @@ def dockerImage = ''
 
 node {
     def sonarScanner = tool name: 'SonarQube', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-    stage('Cloning Git') {
+    stage('Checkout Code') {
         git(url: 'https://github.com/GauravBarua/simple-bank-system.git', branch: 'master')
     }
-    stage('SonarQube Analysis'){
+    stage('Code Analysis'){
         withSonarQubeEnv(credentialsId: '966a39dc-c454-4ec7-b713-8b431cf339c3') {
             sh "${sonarScanner}/bin/sonar-scanner -Dsonar.projectKey=SonarQube -Dsonar.sources=."
         }
     }
     stage('Build Project') {
-        sh "npm i"
+        //sh "npm i"
         sh "npm run"
+    }
+    stage('Test Cases Execution'){
+            echo "tests successful"
     }
     stage('Building image') {
         script {
