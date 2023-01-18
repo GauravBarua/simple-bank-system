@@ -35,11 +35,11 @@ node {
             sh 'docker push gauravbarua/simple_bank_project:latest'
       }
     }*/
-   /* node('Kubes') {
+    node('Kubes') {
         stage('Run App') {
             sh """
                 kubectl get pods
             """ 
         }
-    }*/
+    }
 }
