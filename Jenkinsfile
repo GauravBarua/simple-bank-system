@@ -39,6 +39,8 @@ node {
         stage('Run App') {
             sh """
                 kubectl get pods
+                docker pull gauravbarua/simple_bank_project
+                docker images
             """ 
         }
     }
