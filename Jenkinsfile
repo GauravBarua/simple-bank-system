@@ -16,8 +16,9 @@ node {
         sh "npm run"
     }
     stage('Test Cases Execution'){
-            echo "tests successful"
-    }
+            sh "npm run"
+            sh "npm test install"
+          }
     stage('Building image') {
         script {
           dockerImage = docker.build imagename
