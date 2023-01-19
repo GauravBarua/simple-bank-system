@@ -8,8 +8,7 @@ node {
     }
     stage('Code Analysis'){
         withSonarQubeEnv(credentialsId: '966a39dc-c454-4ec7-b713-8b431cf339c3') {
-            sh "${sonarScanner}/bin/sonar-scanner"
-            //-Dsonar.projectKey=SonarQube -Dsonar.sources=."
+            sh "${sonarScanner}/bin/sonar-scanner -Dsonar.projectKey=SonarQube -Dsonar.sources=."
         }
     }
     stage('Build Project') {
